@@ -1,7 +1,17 @@
 import React from 'react';
 
-const Firsttry= () => {
-	return <p>I made my first component!</p>
+const person= (props) => {
+
+	return (
+	<div>
+		<p>I am {props.name} and I am {props.age} years old.</p>
+		<p>{props.children}</p>
+	</div>	
+
+)
+
 };
 
-export default Firsttry;
+
+
+export default person;
