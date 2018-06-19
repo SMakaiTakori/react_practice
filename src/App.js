@@ -3,16 +3,35 @@ import './App.css';
 import Person from './Person/Person';
 
 class App extends Component {
+	state = {
+		persons:[
+			{name:'Makai', age:30},
+			{name:'Alfredo', age:24},
+			{name:'Loris', age:25}
+		]
+	}	
+
+	switchNameHandler = () => {
+		// console.log('Was clicked!');
+		// DON't DO THIS: this.state.persons[0].name = 'Makai Takori'; 
+		this.setState( {persons:[
+			{name:'Todd', age:30},
+			{name:'Alfredo', age:24},
+			{name:'Loris', age:29}
+		]
+	} )
+	}
+
+
   render() {
     return (
       <div className="App">
-        <h1>Puppies!</h1>
-        <p>Aren't they so adorable?</p>
-        <Person name="Makai" age="30" />
-        <Person name = "Alfredo" age ="24"> My Hobbies: Coding </Person>
-		<Person name = "Loris" age = "25"/>
-
-        <img src="https://s.abcnews.com/images/US/puppies-gty-hb-170911_4x3_992.jpg"/>
+        <h1>This is a React App</h1>
+        <p>It's Actually working!</p>
+        <button onClick={this.switchNameHandler}>Switch Name</button>
+        <Person name={this.state.persons[0].name} age={this.state.persons[0].age} />
+        <Person name = {this.state.persons[1].name} age={this.state.persons[1].age}/>
+		<Person name = {this.state.persons[2].name} age={this.state.persons[2].age}/>
       </div>
     );
     //return React.createElement('div',{className: 'App'}, React.createElement('h1',null, 'Does this work now?'));
